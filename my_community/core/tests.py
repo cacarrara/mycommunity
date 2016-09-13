@@ -3,7 +3,16 @@ from django.test import TestCase
 
 from mixer.backend.django import mixer
 
-from core.models import Business
+from core.models import Business, BusinessSegment
+
+
+class BusinessSegmentTestCase(TestCase):
+    def setUp(self):
+        mixer.cycle(5).blend(BusinessSegment)
+
+    def test_string_format(self):
+        b = BusinessSegment.objects.get(pk=1)
+        self.assertEqual(b.name, b.__str__())
 
 
 class BusinessTestCase(TestCase):
@@ -15,6 +24,11 @@ class BusinessTestCase(TestCase):
         new_business = Business(name=business.name)
         with self.assertRaises(IntegrityError):
             new_business.save()
+
+    def test_string_format(self):
+        b = Business.objects.get(pk=1)
+        expected_str = "{} ({} - {})".format(b.name, b.segment, b.business_type)
+        self.assertEqual(expected_str, b.__str__())
 
 
 class HomeTest(TestCase):

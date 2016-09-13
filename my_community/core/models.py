@@ -6,7 +6,7 @@ class BusinessSegment(models.Model):
     name = models.CharField(_('Name'), max_length=250)
 
     def __str__(self):
-        return name
+        return self.name
 
 
 class Business(models.Model):
