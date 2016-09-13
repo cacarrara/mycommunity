@@ -1,4 +1,12 @@
 [run]
-branch=True
-source=./my_community
-omit = ./my_community/manage.py,./my_community/config/*,./my_community/**/migrations/*,./my_community/**/tests*,./my_community/**/urls.py
+branch = True
+source = ./my_community
+omit =
+    ./my_community/manage.py
+    ./my_community/config/*
+    ./my_community/**/migrations/*
+    ./my_community/**/tests*
+    ./my_community/**/urls.py
+
+[report]
+ignore_errors = True
