@@ -2,3 +2,4 @@ coverage==4.2
 django-nose==1.4.4
 django-test-without-migrations==0.4
 mixer==5.5.7
+pep8==1.7.0
