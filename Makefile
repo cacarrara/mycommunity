@@ -8,5 +8,5 @@ makemigrations:
 migrate:
 	./my_community/manage.py migrate
 
-run: makemigrations migrate
+run:
 	./my_community/manage.py runserver
