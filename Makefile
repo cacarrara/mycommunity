@@ -1,5 +1,5 @@
 test:
-	coverage run --source='./my_community' ./my_community/manage.py test -n $(filter-out $@, $(MAKECMDGOALS))
+	coverage run ./my_community/manage.py test -n $(filter-out $@, $(MAKECMDGOALS))
 	coverage report
 
 makemigrations:
