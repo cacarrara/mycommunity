@@ -2,7 +2,7 @@ import googlemaps
 
 
 # Replace the API key below with a valid API key.
-gmaps = googlemaps.Client(key='AIzaSyADYQy3wj8m-5VOBy-3aeTeCHwS4J2JPBk')
+gmaps = googlemaps.Client(key=GOOGLE_API_KEY)
 
 # Geocoding and address
 geocode_result = gmaps.geocode('Rua Silva Barros, 107, Sorocaba, SP')
