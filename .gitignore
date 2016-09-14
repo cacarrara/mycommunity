@@ -1,5 +1,7 @@
 # environment files
 .env
+.venv
+venv
 
 # local settings
 settings_local.py
