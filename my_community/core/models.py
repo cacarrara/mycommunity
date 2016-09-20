@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
+import googlemaps
 
 
 class BusinessSegment(models.Model):
@@ -33,3 +36,15 @@ class Business(models.Model):
 
     def __str__(self):
         return "{} ({} - {})".format(self.name, self.segment, self.business_type)
+
+    def _set_lat_lng(self):
+        gmaps = googlemaps.Client(key=settings.GOOGLE_API_KEY)
+        geocode = gmaps.geocode(self.address)
+        if len(geocode) > 0:
+            self.latitude = geocode[0]['geometry']['location']['lat']
+            self.longitude = geocode[0]['geometry']['location']['lng']
+
+    def save(self, *args, **kwargs):
+        if self.address:
+            self._set_lat_lng()
+        return super(Business, self).save(*args, **kwargs)

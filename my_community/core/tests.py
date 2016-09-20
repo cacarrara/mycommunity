@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.db import IntegrityError
 from django.test import TestCase
 
@@ -17,7 +19,7 @@ class BusinessSegmentTestCase(TestCase):
 
 class BusinessTestCase(TestCase):
     def setUp(self):
-        mixer.cycle(5).blend(Business)
+        mixer.cycle(5).blend(Business, address='')
 
     def test_uniqueness(self):
         business = Business.objects.get(pk=1)
@@ -29,6 +31,19 @@ class BusinessTestCase(TestCase):
         b = Business.objects.get(pk=1)
         expected_str = "{} ({} - {})".format(b.name, b.segment, b.business_type)
         self.assertEqual(expected_str, b.__str__())
+
+    @patch('core.models.googlemaps.Client.geocode')
+    def test_set_lat_lng(self, mock_geocode):
+        mock_geocode.return_value = [{
+            'geometry': {
+                'location': {'lat': 10, 'lng': 10}
+            }
+        }]
+        b = mixer.blend(Business, address='')
+        b.address = 'Sorocaba'
+        b.save()
+        self.assertEqual(b.latitude, 10)
+        self.assertEqual(b.longitude, 10)
 
 
 class HomeTest(TestCase):
