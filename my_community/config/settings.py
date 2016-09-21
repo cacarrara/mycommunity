@@ -61,7 +61,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "core", "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,5 @@ STATICFILES_DIRS = (
 )
 # when run collectstatic the result will be here
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_deploy')
+
+GOOGLE_API_KEY = config('GOOGLE_API_KEY', default=None)
