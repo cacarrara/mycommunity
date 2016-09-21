@@ -129,3 +129,5 @@ STATICFILES_DIRS = (
 )
 # when run collectstatic the result will be here
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_deploy')
+
+GOOGLE_API_KEY = config('GOOGLE_API_KEY', default="")
