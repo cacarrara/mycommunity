@@ -1,9 +1,7 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView
 from django.views.generic import TemplateView
 
-from core.forms import BusinessForm
 from core.models import Business
 
 
