@@ -9,7 +9,7 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
 
-class AddBusinessView(CreateView):
+class BusinessAddView(CreateView):
     model = Business
     fields = ['name', 'address', 'email', 'facebook_page', 'twitter_profile', 'linkedin_profile', 'business_type',
               'segment']
@@ -20,4 +20,4 @@ class AddBusinessView(CreateView):
 
 
 index_view = IndexView.as_view()
-business_add_view = AddBusinessView.as_view()
+business_add_view = BusinessAddView.as_view()
