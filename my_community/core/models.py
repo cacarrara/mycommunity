@@ -8,6 +8,10 @@ import googlemaps
 class BusinessSegment(models.Model):
     name = models.CharField(_('Name'), max_length=250)
 
+    class Meta:
+        verbose_name = _('Segmento de Negócio')
+        verbose_name_plural = _('Segmentos de Negócio')
+
     def __str__(self):
         return self.name
 
@@ -33,6 +37,10 @@ class Business(models.Model):
     segment = models.ForeignKey(BusinessSegment, verbose_name=_('Segment'),
                                 on_delete=models.CASCADE, blank=False, null=False,
                                 related_name=u'businesses')
+
+    class Meta:
+        verbose_name = _('Negócio')
+        verbose_name_plural = _('Negócios')
 
     def __str__(self):
         return "{} ({} - {})".format(self.name, self.segment, self.business_type)
