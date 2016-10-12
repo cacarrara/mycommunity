@@ -1,62 +1,32 @@
+{% extends 'core/_base.html' %}
+
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>New Business</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .brand-logo {
-        margin-left: 20px;
-      }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-  </head>
-  <body>
-    <div class="navbar-fixed">
-      <nav class="green">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">My Community</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">+ Business</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <div class="row main-content">
-      <div class="col s5 map-wrapper">
-        <h4>Add a new Business</h4>
-        <form method="post">
-          {% csrf_token %}
-          {% for field in form.visible_fields %}
-          <div class="input-field">
-            {% render_field field placeholder=field.label %}
-            {{ field.label_tag }}
-          </div>
-          {% endfor %}
-          {% for field in form.hidden_fields %}
-            {{ field }}
-          {% endfor %}
-          <div class="input-field">
-            <input type="submit" value="Add Business" class="waves-effect waves-light btn green right">
-          </div>
-        </form>
-
+{% block content %}
+  <div class="col s5 map-wrapper">
+    <h4>Add a new Business</h4>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form.visible_fields %}
+      <div class="input-field">
+        {% render_field field placeholder=field.label %}
+        {{ field.label_tag }}
       </div>
-    </div>
-    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-    <script>
-      $(document).ready(function() {
-          $('select').material_select();
-      });
-    </script>
-  </body>
-</html>
+      {% endfor %}
+      {% for field in form.hidden_fields %}
+        {{ field }}
+      {% endfor %}
+      <div class="input-field">
+        <input type="submit" value="Add Business" class="waves-effect waves-light btn green right">
+      </div>
+    </form>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $('select').not('.disabled').material_select();
+  });
+</script>
+{% endblock %}

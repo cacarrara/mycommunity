@@ -1,75 +1,61 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .brand-logo {
-        margin-left: 20px;
-      }
-      #map, .main-content, .map-wrapper {
-        height: 100%;
-      }
-      .left-panel {
-        padding-top: 20px !important;
-      }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-  </head>
-  <body>
-    <div class="navbar-fixed">
-      <nav class="green">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">My Community</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="{% url 'core:add-business' %}">+ Business</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+{% extends 'core/_base.html' %}
 
-    <div class="row main-content">
-      <div class="col s2 left-panel">
-        <div class="collection">
-          <a href="#!" class="collection-item">Trading</a>
-          <a href="#!" class="collection-item active">Service</a>
-        </div>
+{% block extra_css %}
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .brand-logo {
+    margin-left: 20px;
+  }
+  #map, .main-content, .map-wrapper {
+    height: 100%;
+  }
+  .left-panel {
+    padding-top: 20px !important;
+  }
+</style>
+{% endblock %}
 
-        <div class="collection">
-          <a href="#!" class="collection-item">Food - Restaurants</a>
-          <a href="#!" class="collection-item">Food - Markets</a>
-          <a href="#!" class="collection-item">Beer - Producers</a>
-          <a href="#!" class="collection-item">Beer - Pubs</a>
-        </div>
-      </div>
-      <div class="col s10 map-wrapper">
-        <div id="map"></div>
-      </div>
-    </div>
-    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -23.5, lng: -47.5},
-          zoom: 13
-        });
-        var point = new google.maps.LatLng(-23.4895183,-47.4464779);
-        var marker = new google.maps.Marker({
-            position: point,
-            title:"O Bretão"
-        });
-        marker.setMap(map);
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-    async defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  </body>
-</html>
+{% block content %}
+<div class="col s2 left-panel">
+  <div class="collection">
+    <a href="#!" class="collection-item">Trading</a>
+    <a href="#!" class="collection-item active">Service</a>
+  </div>
+
+  <div class="collection">
+    <a href="#!" class="collection-item">Food - Restaurants</a>
+    <a href="#!" class="collection-item">Food - Markets</a>
+    <a href="#!" class="collection-item">Beer - Producers</a>
+    <a href="#!" class="collection-item">Beer - Pubs</a>
+  </div>
+</div>
+<div class="col s10 map-wrapper">
+  <div id="map"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  $(document).ready(function() {
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -23.5, lng: -47.5},
+        zoom: 13
+      });
+      var point = new google.maps.LatLng(-23.4895183,-47.4464779);
+      var marker = new google.maps.Marker({
+          position: point,
+          title:"O Bretão"
+      });
+      marker.setMap(map);
+    }
+    initMap();
+  });
+</script>
+{% endblock %}
