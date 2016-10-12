@@ -1,3 +1,5 @@
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,12 +35,20 @@
         <h4>Add a new Business</h4>
         <form method="post">
           {% csrf_token %}
-          {{ form }}
+          {% for field in form.visible_fields %}
+          <div class="input-field">
+            {% render_field field placeholder=field.label %}
+            {{ field.label_tag }}
+          </div>
+          {% endfor %}
+          {% for field in form.hidden_fields %}
+            {{ field }}
+          {% endfor %}
           <div class="input-field">
             <input type="submit" value="Add Business" class="waves-effect waves-light btn green right">
           </div>
         </form>
-        
+
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
