@@ -2,7 +2,7 @@
 
 1. Fork the project
 2. Clone your fork for your machine
-3. Create a local virtualenv in your machine (Python3) and install requirements `pip install -r requirements`;
+3. Create a local virtualenv in your machine (Python3) and install requirements `pip install -r requirements.txt`;
 4. We can check our installed dependencies using `pip freeze`;
 5. Make sure the project is running successfully using the command `my_community/manage.py runserver` and visiting `http://127.0.0.1:8000/`;
 6. We can also use the `make` tool in conjunction with the `Makefile` at the root of our project. The above command, for example, can be launched simply as `make run`. Check out the make documentation at `https://www.gnu.org/software/make/manual/make.html`;
