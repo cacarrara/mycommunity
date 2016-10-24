@@ -2,11 +2,16 @@ from django.urls import reverse
 from django.views.generic import CreateView
 from django.views.generic import TemplateView
 
-from core.models import Business
+from core.models import Business, BusinessSegment
 
 
 class IndexView(TemplateView):
     template_name = 'core/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['segments'] = BusinessSegment.objects.all()
+        return context
 
 index_view = IndexView.as_view()
 

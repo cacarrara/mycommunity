@@ -21,17 +21,18 @@
 
 {% block content %}
 <div class="col s2 left-panel">
+
   <div class="collection">
     <a href="#!" class="collection-item">Trading</a>
     <a href="#!" class="collection-item active">Service</a>
   </div>
 
   <div class="collection">
-    <a href="#!" class="collection-item">Food - Restaurants</a>
-    <a href="#!" class="collection-item">Food - Markets</a>
-    <a href="#!" class="collection-item">Beer - Producers</a>
-    <a href="#!" class="collection-item">Beer - Pubs</a>
+  {% for segment in segments %}
+    <a href="#!" class="collection-item">{{ segment.name }}</a>
+  {% endfor %}
   </div>
+
 </div>
 <div class="col s10 map-wrapper">
   <div id="map"></div>
