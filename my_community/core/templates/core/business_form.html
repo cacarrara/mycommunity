@@ -4,34 +4,35 @@
 
 {% block content %}
 <div class="row">
-	<div class="col s12">
-		<div class="row">
+  <div class="col s12">
+    <div class="row">
       <div class="col s12">
         <h4 class="center-align">Add a new Business</h4>
       </div>
-    </div>
-		<div class="row">
-			<form method="post">
-				{% csrf_token %} {% for field in form.visible_fields %}
-				<div class="col s6">
-					<div class="input-field">
-						{% render_field field placeholder=field.label %} {{ field.label_tag }}
-					</div>
-				</div>
-				{% endfor %}
-        {% for field in form.hidden_fields %}
-          {{ field }}
-        {% endfor %}
-				<div class="row">
-          <div class="col s12">
-            <div class="input-field center-align">
-              <input type="submit" value="Add Business" class="waves-effect waves-light btn green">
-            </div>
-          </div>
+  </div>
+  <form method="post">
+    <div class="row">
+      {% for field in form.visible_fields %}
+      <div class="col s6">
+        <div class="input-field">
+          {% render_field field placeholder=field.label %} {{ field.label_tag }}
         </div>
-			</form>
-		</div>
-	</div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <div class="input-field center-align">
+          <input type="submit" value="Add Business" class="waves-effect waves-light btn green">
+        </div>
+      </div>
+    </div>
+    {% for field in form.hidden_fields %}
+      {{ field }}
+    {% endfor %}
+    {% csrf_token %}
+  </form>
+  </div>
 </div>
 {% endblock %}
 
