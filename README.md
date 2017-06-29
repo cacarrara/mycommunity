@@ -8,4 +8,4 @@ Small local businesses are the largest employer nationally, and in our community
 
 Local businesses are owned by people who live in this community, are less likely to leave, and are more invested in the community’s future.
 
-[More reasons and source](http://sustainableconnections.org/thinklocal/why)
+[More reasons and source](https://sustainableconnections.org/why-buy-local/)
