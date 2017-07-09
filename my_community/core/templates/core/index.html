@@ -49,12 +49,20 @@
         center: {lat: -23.5, lng: -47.5},
         zoom: 13
       });
-      var point = new google.maps.LatLng(-23.4895183,-47.4464779);
-      var marker = new google.maps.Marker({
-          position: point,
-          title:"O Bretão"
+      $.ajax('api/business/', {
+        success: function(data) {
+          console.log(data);
+          $.each(data.objects, function(idx, business) {
+            var point = new google.maps.LatLng(business.latitude, business.longitude);
+            var marker = new google.maps.Marker({
+                position: point,
+                title: business.name,
+                map: map,
+            });
+            console.log(business);
+          });
+        }
       });
-      marker.setMap(map);
     }
     initMap();
   });
