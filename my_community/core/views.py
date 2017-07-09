@@ -13,6 +13,7 @@ class IndexView(TemplateView):
         context['segments'] = BusinessSegment.objects.all()
         return context
 
+
 index_view = IndexView.as_view()
 
 
@@ -23,5 +24,6 @@ class BusinessAddView(CreateView):
 
     def get_success_url(self):
         return reverse('core:index')
+
 
 business_add_view = BusinessAddView.as_view()

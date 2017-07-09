@@ -1,0 +1,6 @@
+-r production.txt
+coverage
+django-nose
+django-test-without-migrations
+mixer
+flake8
