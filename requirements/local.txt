@@ -2,5 +2,6 @@
 coverage
 django-nose
 django-test-without-migrations
-mixer
 flake8
+ipdb
+mixer

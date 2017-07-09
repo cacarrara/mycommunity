@@ -7,11 +7,15 @@
 certifi==2017.4.17        # via requests
 chardet==3.0.4            # via requests
 dj-database-url==0.4.2
+django-tastypie==0.14.0
 django-widget-tweaks==1.4.1
 django==1.11.3
 googlemaps==2.5.1
 idna==2.5                 # via requests
+python-dateutil==2.6.0    # via django-tastypie
 python-decouple==3.0
+python-mimeparse==1.6.0   # via django-tastypie
 pytz==2017.2              # via django
 requests==2.18.1          # via googlemaps
+six==1.10.0               # via python-dateutil
 urllib3==1.21.1           # via requests

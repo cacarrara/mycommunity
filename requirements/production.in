@@ -1,4 +1,5 @@
 Django
+django-tastypie
 dj-database-url
 django-widget-tweaks
 googlemaps
