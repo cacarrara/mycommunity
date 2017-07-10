@@ -5,5 +5,5 @@ from core.models import Business
 
 class BusinessResource(ModelResource):
     class Meta:
-        queryset = Business.objects.all()
+        queryset = Business.objects.filter(approved=True)
         resource_name = 'business'

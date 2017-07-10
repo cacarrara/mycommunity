@@ -37,6 +37,7 @@ class Business(models.Model):
     segment = models.ForeignKey(BusinessSegment, verbose_name=_('Segment'),
                                 on_delete=models.CASCADE, blank=False, null=False,
                                 related_name=u'businesses')
+    approved = models.BooleanField(_('Approved'), default=False)
 
     class Meta:
         verbose_name = _('Negócio')
