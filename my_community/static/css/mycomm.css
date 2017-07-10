@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.brand-logo {
+  margin-left: 20px;
+}
+
+#map, .main-content, .map-wrapper {
+  height: 100%;
+}
+
+.left-panel {
+  padding-top: 20px !important;
+}

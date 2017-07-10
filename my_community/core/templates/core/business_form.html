@@ -1,13 +1,13 @@
 {% extends 'core/_base.html' %}
 
-{% load widget_tweaks %}
+{% load i18n static widget_tweaks %}
 
 {% block content %}
 <div class="row">
   <div class="col s12">
     <div class="row">
       <div class="col s12">
-        <h4 class="center-align">Add a new Business</h4>
+        <h4 class="center-align">{% trans 'Add a new Business' %}</h4>
       </div>
   </div>
   <form method="post">
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col s12">
         <div class="input-field center-align">
-          <input type="submit" value="Add Business" class="waves-effect waves-light btn green">
+          <input type="submit" value="{% trans 'Add Business' %}" class="waves-effect waves-light btn green">
         </div>
       </div>
     </div>

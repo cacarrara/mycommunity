@@ -1,29 +1,21 @@
+{% load i18n static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Business</title>
+    <title>{% trans 'My Community - think global, act local' %}</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .brand-logo {
-        margin-left: 20px;
-      }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'css/mycomm.css' %}">
     {% block extra_css %}{% endblock %}
   </head>
   <body>
     <div class="navbar-fixed">
       <nav class="green">
         <div class="nav-wrapper">
-          <a href="{% url 'core:index' %}" class="brand-logo">My Community</a>
+          <a href="{% url 'core:index' %}" class="brand-logo">{% trans 'My Community' %}</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="{% url 'core:add-business' %}">+ Business</a></li>
+            <li><a href="{% url 'core:add-business' %}">{% trans '+ Business' %}</a></li>
           </ul>
         </div>
       </nav>
@@ -32,6 +24,7 @@
     <div class="row main-content">
       {% block content%}{% endblock %}
     </div>
+
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     {% block extra_js %}{% endblock %}

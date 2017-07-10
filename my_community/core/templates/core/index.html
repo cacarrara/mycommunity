@@ -1,32 +1,12 @@
 {% extends 'core/_base.html' %}
 
-{% load static %}
-
-{% block extra_css %}
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .brand-logo {
-    margin-left: 20px;
-  }
-  #map, .main-content, .map-wrapper {
-    height: 100%;
-  }
-  .left-panel {
-    padding-top: 20px !important;
-  }
-</style>
-{% endblock %}
+{% load i18n static %}
 
 {% block content %}
 <div class="col s2 left-panel">
-
   <div class="collection">
-    <a href="#!" class="collection-item">Trading</a>
-    <a href="#!" class="collection-item active">Service</a>
+    <a href="#!" class="collection-item">{% trans 'Trading' %}</a>
+    <a href="#!" class="collection-item active">{% trans 'Service' %}</a>
   </div>
 
   <div class="collection">
@@ -34,8 +14,8 @@
     <a href="#!" class="collection-item">{{ segment.name }}</a>
   {% endfor %}
   </div>
-
 </div>
+
 <div class="col s10 map-wrapper">
   <div id="map"></div>
 </div>
