@@ -4,19 +4,35 @@
 #
 #    pip-compile --output-file requirements/production.txt requirements/production.in
 #
-certifi==2018.11.29       # via requests
-chardet==3.0.4            # via requests
-dj-database-url==0.5.0    # via -r production.in
-django-tastypie==0.14.2   # via -r production.in
-django-widget-tweaks==1.4.3  # via -r production.in
-django==2.2.13            # via -r production.in
-googlemaps==3.0.2         # via -r production.in
-idna==2.8                 # via requests
-python-dateutil==2.7.5    # via django-tastypie
-python-decouple==3.1      # via -r production.in
-python-mimeparse==1.6.0   # via django-tastypie
-pytz==2018.9              # via django
-requests==2.21.0          # via googlemaps
-six==1.12.0               # via python-dateutil
-sqlparse==0.3.0           # via django
-urllib3==1.24.2           # via requests
+certifi==2018.11.29
+    # via requests
+chardet==3.0.4
+    # via requests
+dj-database-url==0.5.0
+    # via -r production.in
+django-tastypie==0.14.2
+    # via -r production.in
+django-widget-tweaks==1.4.3
+    # via -r production.in
+django==2.2.18
+    # via -r production.in
+googlemaps==3.0.2
+    # via -r production.in
+idna==2.8
+    # via requests
+python-dateutil==2.7.5
+    # via django-tastypie
+python-decouple==3.1
+    # via -r production.in
+python-mimeparse==1.6.0
+    # via django-tastypie
+pytz==2018.9
+    # via django
+requests==2.21.0
+    # via googlemaps
+six==1.12.0
+    # via python-dateutil
+sqlparse==0.3.0
+    # via django
+urllib3==1.24.2
+    # via requests
